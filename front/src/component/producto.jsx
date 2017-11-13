@@ -20,7 +20,7 @@ class Producto extends React.Component{
               <div className='col-lg-5'>
                 <h1>{this.props.data.titulo}</h1>
                 <h4>${this.props.data.precio}</h4>
-                  <p><a href="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></a> <a href="#" className="btn btn-default" role="button">Comprar</a></p>
+                  <p><Link to="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></Link> <a href="#" className="btn btn-default" role="button">Comprar</a></p>
               </div>
             <div className='col-lg-1'></div>
           </div>

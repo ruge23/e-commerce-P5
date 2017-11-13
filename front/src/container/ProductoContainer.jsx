@@ -19,13 +19,11 @@ class ProductoContainer extends React.Component {
 
 
   render(){
-    console.log(this.state.producto)
-        return(
-        <Producto
-          data= {this.state.producto}
-        />
+    return(
+      <Producto data= {this.state.producto} />
     )
   }
+
 };
 
 export default ProductoContainer

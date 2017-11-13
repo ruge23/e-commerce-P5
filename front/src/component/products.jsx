@@ -19,7 +19,7 @@ const Product = function(props){
                     <div className="caption">
                      <Link to={ "/producto/" + articulo.titulo}> <strong><h3 className="titulo">{ articulo.titulo }</h3></strong> </Link>
                       <p><strong>Precio: </strong>${ articulo.precio }</p>
-                      <p><a href="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></a> <a href="#" className="btn btn-success" role="button">Comprar</a></p>
+                      <p><Link to="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></Link> <Link to="#" className="btn btn-success" role="button">Comprar</Link></p>
                     </div>
                   </div>
                 </div>
