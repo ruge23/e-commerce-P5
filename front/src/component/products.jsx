@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import axios from 'axios';
 
 const Product = function(props){
+  console.log('props data', props.data)
     return (
       <div>
           <div className="row">
@@ -14,10 +15,10 @@ const Product = function(props){
                 <div className="col-lg-4 coxa">
                   <div className="thumbnail zambneil">
                   <div className="cosa">
-                      <Link to={ "/producto/" + articulo.titulo}> <img src= { articulo.imagen } className="imagenes"/></Link>
+                      <Link to={ "/producto/" + articulo.nombre}> <img src= { articulo.img_url } className="imagenes"/></Link>
                   </div>
                     <div className="caption">
-                     <Link to={ "/producto/" + articulo.titulo}> <strong><h3 className="titulo">{ articulo.titulo }</h3></strong> </Link>
+                     <Link to={ "/producto/" + articulo.nombre}> <strong><h3 className="titulo">{ articulo.nombre }</h3></strong> </Link>
                       <p><strong>Precio: </strong>${ articulo.precio }</p>
                       <p><Link to="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></Link> <Link to="#" className="btn btn-success" role="button">Comprar</Link></p>
                     </div>

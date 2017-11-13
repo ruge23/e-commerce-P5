@@ -1,17 +1,28 @@
 import React from 'react';
-import axios from 'axios';
-
 import Products from '../component/products.jsx';
-import data from '../component/data.js'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../redux/actions/actionCreator';
+
 
 class ProductosContainer extends React.Component {
+
   render(){
+    console.log('PROPS', this.props)
     return(
         <Products
-          data= {data}
+          data = {this.props.products}
         />
     )
   }
 };
 
-export default ProductosContainer
+function mapStateToProps(state){
+  return { products: state.products }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductosContainer);
