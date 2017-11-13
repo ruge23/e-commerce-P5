@@ -1,21 +1,21 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import Navbar from './components/Navbar.jsx'
-import Form from './components/Form.jsx'
-class Main extends React.Component{
-  constructor(props){
-    super(props);
-  }
-  render(){
-    return(
-      <div>
+import {render} from 'react-dom';
 
-      <Navbar/>
-      <Form/>
+//componentes
+import Main from './component/main.jsx'
+import ProductosContainer from './container/ProductosContainer.jsx'
+import ProductoContainer from './container/ProductoContainer.jsx'
 
-      </div>
-    )
-  }
-}
+//dependencias
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
-ReactDom.render(<Main/>,document.getElementById('app'));
+const router = (
+    <Router history={hashHistory}>
+      <Route path='/' component={Main}>
+        <IndexRoute component={ProductosContainer}/>
+        <Route path='/producto/:nombre' component = {ProductoContainer}/>
+      </Route>
+    </Router>
+)
+
+render(router, document.getElementById('app'));

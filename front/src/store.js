@@ -1,10 +1,9 @@
 // import { createStore, compose } from 'redux';
 //
-// import rootReducer from './reducers'
+// // import rootReducer from './reducers'
 //
 // const defaultState = {
 //   products : [],
-//   product : [],
 //   carrito : [],
 // };
 //
