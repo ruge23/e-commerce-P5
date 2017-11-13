@@ -1,31 +1,26 @@
 import React from 'react';
 import Producto from '../component/producto.jsx';
-import data from '../component/data.js'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../redux/actions/actionCreator';
 
 class ProductoContainer extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      producto : null,
-    }
-  };
-
-  componentDidMount () {
-    function nombre(producto){
-      return producto.titulo === this.props.params.nombre
-    }
-    this.setState({ producto : data[data.findIndex(nombre.bind(this))] })
-  };
-
-
   render(){
-    console.log(this.state.producto)
-        return(
-        <Producto
-          data= {this.state.producto}
-        />
+    var index = this.props.products
+    .findIndex(products => products.nombre === this.props.params.nombre);
+
+    return(
+      <Producto data= {this.props.products[index]} />
     )
   }
 };
 
-export default ProductoContainer
+function mapStateToProps(state){
+  return { products: state.products }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductoContainer)

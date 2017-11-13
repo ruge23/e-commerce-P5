@@ -1,10 +1,8 @@
-h1 {background-color : red;}
-
-<<<<<<< HEAD
 
 .navbar{
   background-color: #154360;
-=======
+}
+
 body {
   background-color: #caba68;
 }
@@ -51,5 +49,4 @@ body {
 
 .titulo:hover {
   color: #c2486b;
->>>>>>> ce487138e43114fd72119ff7ce40dd00a51016e4
 }

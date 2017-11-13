@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import data from './data.js'
 
 class Producto extends React.Component{
   render(){
@@ -15,12 +14,12 @@ class Producto extends React.Component{
           <div className='row'>
             <div className='col-lg-1'></div>
               <div className='col-lg-5'>
-                <img src= {this.props.data.imagen} id='imagenUnica'/>
+                <img src= {this.props.data.img_url} id='imagenUnica'/>
               </div>
               <div className='col-lg-5'>
-                <h1>{this.props.data.titulo}</h1>
+                <h1>{this.props.data.nombre}</h1>
                 <h4>${this.props.data.precio}</h4>
-                  <p><a href="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></a> <a href="#" className="btn btn-default" role="button">Comprar</a></p>
+                  <p><Link to="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></Link> <a href="#" className="btn btn-default" role="button">Comprar</a></p>
               </div>
             <div className='col-lg-1'></div>
           </div>
