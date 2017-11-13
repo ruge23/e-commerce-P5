@@ -1,15 +1,22 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import {render} from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store.js'
 
-class Main extends React.Component{
-  constructor(props){
-    super(props);
-  }
-  render(){
-    return(
-      <h1>Quiere Biiiijaaaa!!</h1>
-    )
-  }
-}
+//componentes
+import Products from './component/products.jsx'
+import Producto from './component/producto.jsx'
 
-ReactDom.render(<Main/>,document.getElementById('app'));
+//dependencias
+import {Router, Route, hashHistory, IndexRedirect} from 'react-router';
+
+const router = (
+  <Router history={hashHistory}>
+    <Route path='/' component = {Products}>
+    </Route>
+    <Route path='/producto' component = {Producto}>
+    </Route>
+  </Router>
+)
+
+render(router, document.getElementById('app'));
