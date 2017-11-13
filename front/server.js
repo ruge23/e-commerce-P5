@@ -31,7 +31,7 @@ function start(){
     });
   }
   http.createServer(onRequest).listen(3002,()=>{
-    console.log('Servidor de frontend ok');
+    console.log('Servidor de frontend escuchando en 3002');
   });
 }
 
