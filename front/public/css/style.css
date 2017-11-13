@@ -1,1 +1,49 @@
 h1 {background-color : red;}
+
+body {
+  background-color: #caba68;
+}
+
+.zambneil {
+  height: 280px;
+  width: 250px;
+  border: 4px #aae3cf solid;
+  border-radius: 12px;
+}
+
+.cosa {
+    height: 130px;
+    width: 90%;
+    margin: auto;
+}
+.zambneil:hover {
+  border: 4px #c2486b solid;
+  border-radius: 12px
+
+}
+
+.col-lg-1 {
+  background-color: black;
+}
+.col-lg-12 {
+    margin-top: 10px;
+}
+#imagenUnica{
+    border:3px solid black;
+    width: 550px; height: 400px;
+    margin-top: 15px;
+}
+
+.imagenes {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0px auto;
+}
+
+.titulo {
+  color: #aae3cf;
+}
+
+.titulo:hover {
+  color: #c2486b;
+}
