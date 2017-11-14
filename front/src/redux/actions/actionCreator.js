@@ -10,7 +10,7 @@ export function mostrarProductos(products){
 // funcion que carga todos los productos que esten en el back al front
 export function cargarProductos(){
   return (dispatch)=>{
-    axios.get('http://192.168.18.7:3000/products')
+    axios.get('http://localhost:3000/products')
     .then((products)=>{
       dispatch(mostrarProductos(products.data))
     }).catch(console.log)
