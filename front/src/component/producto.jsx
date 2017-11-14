@@ -4,13 +4,13 @@ import { Link } from 'react-router';
 class Producto extends React.Component{
   constructor(props) {
     super(props);
-    this.agregarCarrito = this.agregarCarrito.bind(this)
     this.borrarCarrito = this.borrarCarrito.bind(this)
+    // this.agregarCarrito = this.agregarCarrito.bind(this)
   }
 
-  agregarCarrito(){
-    this.props.addCart(this.props.data)
-  }
+  // agregarCarrito(product){
+  //   this.props.agregarLocalStorage(product)
+  // }
 
   borrarCarrito(){
    this.props.removeCart(this.props.carrito.findIndex(
@@ -46,7 +46,7 @@ class Producto extends React.Component{
                       :
                       <button
                         className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"
-                        onClick = { this.agregarCarrito }
+                        onClick = { () => this.props.agregarLocalStorage(this.props.data) }
                         >
                       </button>
                     }
