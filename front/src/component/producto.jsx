@@ -2,9 +2,24 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class Producto extends React.Component{
+  constructor(props) {
+    super(props);
+    this.agregarCarrito = this.agregarCarrito.bind(this)
+    this.borrarCarrito = this.borrarCarrito.bind(this)
+  }
+
+  agregarCarrito(){
+    this.props.addCart(this.props.data)
+  }
+
+  borrarCarrito(){
+   this.props.removeCart(this.props.carrito.findIndex(
+     product => product.nombre === this.props.data.nombre))
+  }
+
   render(){
-    console.log("aaa", this.props)
     if(!this.props.data) return (<div>cargando</div>);
+    var carrito = this.props.carrito
     return(
       <div>
         <div className='row'>
@@ -18,8 +33,24 @@ class Producto extends React.Component{
               </div>
               <div className='col-lg-5'>
                 <h1>{this.props.data.nombre}</h1>
+
                 <h4>${this.props.data.precio}</h4>
-                  <p><Link to="#" className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"></Link> <a href="#" className="btn btn-default" role="button">Comprar</a></p>
+                  <p>
+                    {
+                      carrito.map(product => product.nombre).includes(this.props.data.nombre)  ?
+                      <button
+                        onClick = { this.borrarCarrito }
+                        >
+                        borrado
+                      </button>
+                      :
+                      <button
+                        className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"
+                        onClick = { this.agregarCarrito }
+                        >
+                      </button>
+                    }
+                  </p>
               </div>
             <div className='col-lg-1'></div>
           </div>

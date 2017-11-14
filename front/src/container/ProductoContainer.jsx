@@ -4,21 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../redux/actions/actionCreator';
 
-// class ProductoContainer extends React.Component {
-//   // render(){
-//   //   var index = this.props.products
-//   //   .findIndex(product => product.nombre === this.props.params.nombre);
-//
-//     return(
-//       <Producto data= {this.props.products} />
-//     )
-//   }
-// };
-
 function mapStateToProps(state, ownProps){
   var index = state.products
   .findIndex(product => product.nombre === ownProps.params.nombre);
-  return { data: state.products[index] }
+  return { data: state.products[index], carrito: state.carrito }
 }
 
 function mapDispatchToProps(dispatch){

@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//Muestra los productos de la lista
 export function mostrarProductos(products){
   return{
     type: 'LIST_PRODUCTS',
@@ -16,3 +17,21 @@ export function cargarProductos(){
     }).catch(console.log)
   }
 };
+
+//Agrega al carrito de compras
+
+export function addCart(product){
+  return{
+    type: 'ADD_CART',
+    product,
+  }
+}
+
+//Elimina del carrito de compras
+
+export function removeCart(index){
+  return{
+    type: 'REMOVE_CART',
+    index,
+  }
+}

@@ -5,6 +5,7 @@ import rootReducer from './redux/reducers/index.js'
 
 const defaultState = {
   products : [],
+  carrito: [],
 };
 
 const enhancers = compose(
