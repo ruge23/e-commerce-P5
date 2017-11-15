@@ -5,16 +5,15 @@ class Producto extends React.Component{
   constructor(props) {
     super(props);
     this.borrarCarrito = this.borrarCarrito.bind(this)
-    // this.agregarCarrito = this.agregarCarrito.bind(this)
+    this.agregarCarrito = this.agregarCarrito.bind(this)
   }
 
-  // agregarCarrito(product){
-  //   this.props.agregarLocalStorage(product)
-  // }
+  agregarCarrito(){
+    this.props.agregarLocalStorage(this.props.data)
+  }
 
   borrarCarrito(){
-   this.props.removeCart(this.props.carrito.findIndex(
-     product => product.nombre === this.props.data.nombre))
+   this.props.sacarDelLocalStorage(this.props.data)
   }
 
   render(){
@@ -46,7 +45,7 @@ class Producto extends React.Component{
                       :
                       <button
                         className="btn btn-primary glyphicon glyphicon-shopping-cart" role="button"
-                        onClick = { () => this.props.agregarLocalStorage(this.props.data) }
+                        onClick = { this.agregarCarrito }
                         >
                       </button>
                     }

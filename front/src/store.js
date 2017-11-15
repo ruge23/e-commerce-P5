@@ -1,11 +1,12 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import {obtenerLocalStorage} from './redux/actions/actionCreator.js'
 
 import rootReducer from './redux/reducers/index.js'
 
 const defaultState = {
   products : [],
-  carrito: [],
+  carrito: obtenerLocalStorage(),
 };
 
 const enhancers = compose(

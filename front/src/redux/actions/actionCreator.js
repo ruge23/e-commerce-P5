@@ -49,15 +49,15 @@ export function agregarLocalStorage(producto){
     var carrito = obtenerLocalStorage()
     carrito.push(producto)
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    dispatch(addCart(carrito))
+    dispatch(addCart(producto))
   }
 }
 
 // sacar del storage
-export function sacarDelLocalStorage(nombre){
+export function sacarDelLocalStorage(producto){
   return (dispatch)=>{
     var carrito = obtenerLocalStorage()
-    var index = carrito.findIndex(product => product.nombre === nombre)
+    var index = carrito.findIndex(product => product.nombre === producto.nombre)
     localStorage.removeItem('carrito');
     var nuevoCarrito = [
       ...carrito.slice(0,index),
