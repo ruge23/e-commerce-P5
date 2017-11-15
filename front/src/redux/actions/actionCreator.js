@@ -25,7 +25,7 @@ export function addCart(product){
     type: 'ADD_CART',
     product,
   }
-}
+};
 
 //Elimina del carrito de compras
 
@@ -34,13 +34,13 @@ export function removeCart(index){
     type: 'REMOVE_CART',
     index,
   }
-}
+};
 
 // obetener el storage
 export function obtenerLocalStorage(){
   let carrito = JSON.parse(localStorage.getItem('carrito'));
   return carrito || []
-}
+};
 
 //  agregar en el storage
 export function agregarLocalStorage(producto){
@@ -51,7 +51,7 @@ export function agregarLocalStorage(producto){
     localStorage.setItem('carrito', JSON.stringify(carrito));
     dispatch(addCart(producto))
   }
-}
+};
 
 // sacar del storage
 export function sacarDelLocalStorage(producto){
@@ -66,4 +66,22 @@ export function sacarDelLocalStorage(producto){
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     dispatch(removeCart(index))
   }
-}
+};
+
+//
+export function loggiado(user){
+  return{
+    type: 'USER_LOGGEADO',
+    user,
+  }
+};
+
+// registro que manda al back
+export function registrarse(){
+  return (dispatch)=>{
+    axios.post('http://localhost:3000/signup')
+    .then((user)=>{
+      dispatch(loggiado(user))
+    }).catch(console.log)
+  }
+};

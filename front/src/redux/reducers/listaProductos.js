@@ -3,7 +3,7 @@ function lista(state=[], action){
     case "LIST_PRODUCTS":
         return action.products;
     default:
-        return state
+        return state;
   }
 };
 

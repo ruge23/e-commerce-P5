@@ -7,6 +7,7 @@ import store from './store.js'
 import Main from './component/main.jsx'
 import ProductosContainer from './container/ProductosContainer.jsx'
 import ProductoContainer from './container/ProductoContainer.jsx'
+import Register from './container/RegisterContainer.jsx'
 
 //dependencias
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
@@ -17,6 +18,7 @@ const router = (
         <Route path='/' component={Main}>
           <IndexRoute component={ProductosContainer}/>
           <Route path='/producto/:nombre' component = {ProductoContainer}/>
+          <Route path='/register' component = {Register}/>
         </Route>
       </Router>
     </Provider>
