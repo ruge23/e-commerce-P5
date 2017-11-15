@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../redux/actions/actionCreator';
 
+import RegisterForm from '../component/register.jsx';
+
 class Register extends React.Component{
   constructor(props) {
     super(props);
@@ -14,7 +16,6 @@ class Register extends React.Component{
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      console.log("props", props)
   };
 
     handleChange(e) {
@@ -24,39 +25,18 @@ class Register extends React.Component{
     handleSubmit(e) {
       e.preventDefault();
       console.log(this.state.nombre)
-        // if(e.target.name)
-        // if(e.target.email)
-        // if(e.target.password)
       this.props.registrarse()
     };
 
-
   render(){
     return(
-      <center>
-        <div>
-          <h1>Registrate</h1>
-          <form>
-            <label>
-              email:
-              <input type="email" placeholder="e-mail" name="email" value={this.state.value} onChange={this.handleChange}></input>
-            </label>
-
-            <label>
-              nombre:
-              <input type="text" placeholder="nombre" name="nombre" value={this.state.value} onChange={this.handleChange}></input>
-            <label>
-
-            </label>
-              password:
-              <input type="password" placeholder="password" name="password" value={this.state.value} onChange={this.handleChange}></input>
-            </label>
-
-            <br/>
-            <button onClick= { this.handleSubmit }>Registrarse</button>
-          </form>
-        </div>
-      </center>
+      <RegisterForm
+        cambiar = { this.handleChange }
+        subirRegister = { this.handleSubmit }
+        stateNombre = { this.state.nombre }
+        stateEmail = { this.state.email }
+        statePassword = { this.state.password }
+      />
     )
   }
 }
